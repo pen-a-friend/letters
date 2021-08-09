@@ -4,7 +4,7 @@
 
 **Pen a friend is an app which helps you ensure you keep writing to your loved ones.**
 
-Most people prefer sending short text messages than writing letters. But some of us know how good it feels when someone writes to us! If you know that, this project is for you.
+Most people prefer sending short text messages over writing letters. But some of us know how good it feels when someone writes to us! If you know that, this project is for you.
 
 ## How to use
 
