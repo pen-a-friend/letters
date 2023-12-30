@@ -1,26 +1,54 @@
-import { EmailForm } from "./lib/email_form";
 import { Navbar } from "./components/views/navbar";
 
-import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+
+import { ClerkProvider, SignIn, SignUp, SignedIn } from "@clerk/clerk-react";
+import { Index } from "./pages/IndexPage";
+
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+function ClerkProviderWithRoutes() {
+  const navigate = useNavigate();
+
+  if (!PUBLISHABLE_KEY) {
+    throw new Error("Missing Publishable Key");
+  }
+
+  return (
+    <ClerkProvider
+      publishableKey={PUBLISHABLE_KEY}
+      navigate={(to) => navigate(to)}
+    >
+      <div className="container relative">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route
+            path="/sign-in/*"
+            element={<SignIn routing="path" path="/sign-in" />}
+          />
+          <Route
+            path="/sign-up/*"
+            element={<SignUp routing="path" path="/sign-up" />}
+          />
+          <Route
+            path="/protected"
+            element={
+              <SignedIn>
+                <Index />
+              </SignedIn>
+            }
+          />
+        </Routes>
+      </div>
+    </ClerkProvider>
+  );
+}
 
 export default function App() {
   return (
-    <>
-      <div className="container relative">
-        <Navbar />
-        <SignedOut>Hello World</SignedOut>
-        <SignedIn>
-          <div className="space-y-6 px-10 py-8">
-            <h2 className="text-2xl font-bold tracking-tight">
-              Compose your letter
-            </h2>
-            <p className="text-muted-foreground">
-              Been a long time texted your friend, reveal it all
-            </p>
-          </div>
-          <EmailForm />
-        </SignedIn>
-      </div>
-    </>
+    <BrowserRouter>
+      <ClerkProviderWithRoutes />
+    </BrowserRouter>
   );
 }

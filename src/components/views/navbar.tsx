@@ -27,7 +27,7 @@ export function Navbar() {
           </SignedIn>
           <SignedOut>
             <NavigationMenuItem>
-              <SignInButton />
+              <SignInButton afterSignInUrl="/dashboard" />
             </NavigationMenuItem>
           </SignedOut>
         </NavigationMenuList>

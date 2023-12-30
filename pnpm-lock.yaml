@@ -32,6 +32,9 @@ dependencies:
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
+  ldrs:
+    specifier: ^1.0.1
+    version: 1.0.1
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2102,6 +2105,10 @@ packages:
     dependencies:
       json-buffer: 3.0.1
     dev: true
+
+  /ldrs@1.0.1:
+    resolution: {integrity: sha512-eeCP1XEG72Yz6JX50zlYWRJcEfNBrpp8QSzyjD3HHhxrnt4steLX4iDHF3Dezjbnnj5qtuJn7lr1nln+/kpUIQ==}
+    dev: false
 
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
