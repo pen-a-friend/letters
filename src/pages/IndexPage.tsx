@@ -25,7 +25,6 @@ export function Index() {
           </div>
         </div>
       </section>
-      <div className="container relative">Hello World</div>
     </>
   );
 }
